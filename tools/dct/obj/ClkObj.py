@@ -75,14 +75,14 @@ class ClkObj(ModuleObj):
         cp = configparser.ConfigParser(allow_no_value=True)
         cp.read(ModuleObj.get_figPath())
 
-        count = string.atoi(cp.get("CLK_BUF", "CLK_BUF_COUNT"))
+        count = int(cp.get("CLK_BUF", "CLK_BUF_COUNT"))
         self.__count = count
 
         ops = cp.options("CLK_BUF")
         for op in ops:
             if op == "clk_buf_count":
-                self.__count = string.atoi(cp.get("CLK_BUF", op))
-                ClkData._count = string.atoi(cp.get("CLK_BUF", op))
+                self.__count = int(cp.get("CLK_BUF", op))
+                ClkData._count = int(cp.get("CLK_BUF", op))
                 continue
 
             value = cp.get("CLK_BUF", op)
@@ -90,8 +90,8 @@ class ClkObj(ModuleObj):
 
             data = OldClkData()
             data.set_curList(var_list[2:])
-            data.set_defVarName(string.atoi(var_list[0]))
-            data.set_defCurrent(string.atoi(var_list[1]))
+            data.set_defVarName(int(var_list[0]))
+            data.set_defCurrent(int(var_list[1]))
 
             key = op[16:].upper()
             ModuleObj.set_data(self, key, data)
@@ -409,7 +409,7 @@ class ClkObj_Rushmore(ClkObj):
         cp = configparser.ConfigParser(allow_no_value=True)
         cp.read(ModuleObj.get_figPath())
 
-        count = string.atoi(cp.get("CLK_BUF", "CLK_BUF_COUNT"))
+        count = int(cp.get("CLK_BUF", "CLK_BUF_COUNT"))
         self.__count = count
 
     def read(self, node):
@@ -565,19 +565,19 @@ class ClkObj_MT6779(ClkObj):
             var_list = value.split(r"/")
 
             data = NewClkData()
-            data.set_defVarName(string.atoi(var_list[0]))
+            data.set_defVarName(int(var_list[0]))
 
             buf_output_list = var_list[1].split(r":")
             # only -1 means no data
             if len(buf_output_list) > 1:
                 data.cur_buf_output_list = buf_output_list[1:]
-                data.set_def_buf_output(string.atoi(buf_output_list[0]))
+                data.set_def_buf_output(int(buf_output_list[0]))
 
             driving_control_list = var_list[2].split(r":")
             # only -1 means no data
             if len(driving_control_list) > 1:
                 data.cur_driving_control_list = driving_control_list[1:]
-                data.set_def_driving_control(string.atoi(driving_control_list[0]))
+                data.set_def_driving_control(int(driving_control_list[0]))
 
             key = op[16:].upper()
             ModuleObj.set_data(self, key, data)

@@ -41,7 +41,7 @@ def log(level, msg):
 def compare(value):
     lst = re.findall(r"\d+", value)
     if len(lst) != 0:
-        return string.atoi(lst[0])
+        return int(lst[0])
 
     # if can not find numbers
     return value

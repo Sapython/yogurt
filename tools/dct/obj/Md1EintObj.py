@@ -209,7 +209,7 @@ class Md1EintObj(ModuleObj):
             gen_str += """\t\tinterrupts = <%s %d>;\n""" % (num, type)
             gen_str += """\t\tdebounce = <%s %d>;\n""" % (
                 num,
-                (string.atoi(value.get_debounceTime())) * 1000,
+                (int(value.get_debounceTime())) * 1000,
             )
             gen_str += """\t\tdedicated = <%s %d>;\n""" % (
                 num,
@@ -271,7 +271,7 @@ class Md1EintObj_MT6739(Md1EintObj):
             gen_str += """\tinterrupts = <%s %d>;\n""" % (num, type)
             gen_str += """\tdebounce = <%s %d>;\n""" % (
                 num,
-                (string.atoi(value.get_debounceTime())) * 1000,
+                (int(value.get_debounceTime())) * 1000,
             )
             gen_str += """\tdedicated = <%s %d>;\n""" % (
                 num,

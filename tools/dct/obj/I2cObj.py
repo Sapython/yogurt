@@ -46,8 +46,8 @@ class I2cObj(ModuleObj):
         cp = configparser.ConfigParser(allow_no_value=True)
         cp.read(ModuleObj.get_figPath())
 
-        I2cData._i2c_count = string.atoi(cp.get("I2C", "I2C_COUNT"))
-        I2cData._channel_count = string.atoi(cp.get("I2C", "CHANNEL_COUNT"))
+        I2cData._i2c_count = int(cp.get("I2C", "I2C_COUNT"))
+        I2cData._channel_count = int(cp.get("I2C", "CHANNEL_COUNT"))
 
         if cp.has_option("Chip Type", "I2C_BUS"):
             flag = cp.get("Chip Type", "I2C_BUS")
@@ -147,7 +147,7 @@ class I2cObj(ModuleObj):
 
             if self._bBusEnable:
                 gen_str += """\tclock-frequency = <%d>;\n""" % (
-                    string.atoi(self._busList[i].get_speed()) * 1000
+                    int(self._busList[i].get_speed()) * 1000
                 )
                 temp_str = ""
 
@@ -205,7 +205,7 @@ class I2cObj_MT6759(I2cObj):
 
             if self._bBusEnable:
                 gen_str += """\tclock-frequency = <%d>;\n""" % (
-                    string.atoi(self._busList[i].get_speed()) * 1000
+                    int(self._busList[i].get_speed()) * 1000
                 )
                 temp_str = ""
 
@@ -255,7 +255,7 @@ class I2cObj_MT6775(I2cObj):
 
             if self._bBusEnable:
                 gen_str += """\tclock-frequency = <%d>;\n""" % (
-                    string.atoi(self._busList[i].get_speed()) * 1000
+                    int(self._busList[i].get_speed()) * 1000
                 )
                 temp_str = ""
 
