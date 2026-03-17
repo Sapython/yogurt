@@ -12,17 +12,12 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 
-from __future__ import print_function
-
 import getopt
 import os
 import subprocess
 import sys
 import traceback
 import xml.dom.minidom
-from builtins import range
-
-from past.builtins import cmp
 
 sys.dont_write_bytecode = True
 
@@ -71,7 +66,7 @@ def is_oldDws(path, gen_spec):
 
     try:
         root = xml.dom.minidom.parse(dws_path)
-    except Exception as e:
+    except Exception, e:
         log(LogLevel.warn, "%s is not xml format, try to use old DCT!" % (dws_path))
         if len(gen_spec) == 0:
             log(LogLevel.warn, "Please use old DCT UI to gen all files!")

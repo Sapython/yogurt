@@ -12,18 +12,15 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 
-from builtins import object
-
-
-class KpdData(object):
+class KpdData:
     _row = -1
     _col = -1
     _row_ext = -1
     _col_ext = -1
     _gpioNum = -1
-    _util = ""
-    _homeKey = ""
-    _keyType = ""
+    _util = ''
+    _homeKey = ''
+    _keyType = ''
     _pressTime = -1
     _dinHigh = False
     _matrix = []
@@ -32,7 +29,7 @@ class KpdData(object):
     _downloadKeys = []
     _keyValueMap = {}
     _usedKeys = []
-    _modeKeys = {"META": None, "RECOVERY": None, "FACTORY": None}
+    _modeKeys = {'META':None, 'RECOVERY':None, 'FACTORY':None}
 
     def __init__(self):
         self.__varNames = []
@@ -155,7 +152,8 @@ class KpdData(object):
 
     @staticmethod
     def get_keyVal(key):
-        if key in list(KpdData._keyValueMap.keys()):
+        if key in KpdData._keyValueMap.keys():
             return KpdData._keyValueMap[key]
 
         return 0
+

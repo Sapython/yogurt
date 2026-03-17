@@ -12,10 +12,14 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 
-class PmicData:
+from builtins import object
+
+
+class PmicData(object):
     _var_list = []
+
     def __init__(self):
-        self.__ldoName = ''
+        self.__ldoName = ""
         self.__defEn = -1
         self.__nameList = []
 

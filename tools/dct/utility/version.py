@@ -12,6 +12,6 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 
-VER_MAIN = '3'
-VER_SUB = '5'
-BUILD_SN = '160809'
+VER_MAIN = "3"
+VER_SUB = "5"
+BUILD_SN = "160809"

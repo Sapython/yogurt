@@ -12,10 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See http://www.gnu.org/licenses/gpl-2.0.html for more details.
 
-from builtins import object
-
-
-class GpioData(object):
+class GpioData:
     _count = 0
     _modNum = 8
     _specMap = {}
@@ -28,11 +25,11 @@ class GpioData(object):
     def __init__(self):
         self.__defMode = 0
         self.__eintMode = False
-        self.__modeVec = ["0", "0", "0", "0", "0", "0", "0", "0"]
+        self.__modeVec = ['0', '0', '0', '0', '0', '0', '0', '0']
         self.__inPullEn = True
         self.__inPullSelHigh = False
         self.__defDirInt = 0
-        self.__defDir = "IN"
+        self.__defDir = 'IN'
         self.__inEn = True
         self.__outEn = False
         self.__outHigh = False
@@ -41,6 +38,7 @@ class GpioData(object):
         self.__smtEn = False
         self.__iesEn = True
         self.__drvCur = ""
+
 
     def get_defMode(self):
         return self.__defMode
@@ -127,7 +125,7 @@ class GpioData(object):
         return self.__smtNum
 
     def ge_defDirInt(self):
-        if self.__defDir == "IN":
+        if self.__defDir == 'IN':
             return 0
         else:
             return 1
@@ -138,6 +136,7 @@ class GpioData(object):
 
     @staticmethod
     def get_modeName(key, idx):
-        if key in list(GpioData._modeMap.keys()):
+        if key in GpioData._modeMap.keys():
             value = GpioData._modeMap[key]
             return value[idx]
+
