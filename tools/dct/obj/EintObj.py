@@ -243,7 +243,7 @@ class EintObj(ModuleObj):
         gen_str += """\t\t\t\t\t/* gpio, built-in func mode, built-in eint */\n"""
         gen_str += """\tmediatek,builtin_mapping = """
         for key, value in list(EintData._builtin_map.items()):
-            for sub_key, sub_value in list(value.items()):
+            for sub_key, sub_value in value.items():
                 gen_str += """<%s %s %s>, /* %s */\n\t\t\t\t\t""" % (
                     sub_key,
                     sub_value[0:1],
@@ -270,11 +270,11 @@ class EintObj(ModuleObj):
         for key in list(EintData._builtin_map.keys()):
             if int(eint_num) == int(key):
                 temp_map = EintData._builtin_map[key]
-                for key in list(temp_map.keys()):
+                for key in temp_map.keys():
                     gpio_vec.append(key)
 
                 if flag:
-                    for item in list(temp_map.keys()):
+                    for item in temp_map.keys():
                         item_data = self.__gpio_obj.get_gpioData(int(item))
 
                         if item_data.get_defMode() == int(
@@ -424,7 +424,7 @@ class EintObj_MT6739(EintObj):
                 temp_map = EintData._builtin_map[key]
 
                 if flag:
-                    for item in list(temp_map.keys()):
+                    for item in temp_map.keys():
                         item_data = self.get_gpioObj().get_gpioData(int(item))
 
                         if item_data.get_defMode() == int(

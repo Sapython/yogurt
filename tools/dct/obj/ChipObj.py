@@ -195,9 +195,9 @@ class ChipObj(object):
             idx = 0
             name = ""
             if para.strip() != "":
-                for value in list(para_map.values()):
+                for value in para_map.values():
                     if para in value:
-                        name = list(para_map.keys())[idx]
+                        name = para_map.keys()[idx]
                         break
                     idx += 1
 

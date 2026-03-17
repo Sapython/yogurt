@@ -86,7 +86,7 @@ class EintData(object):
 
     @staticmethod
     def set_modeMap(map):
-        for key, value in list(map.items()):
+        for key, value in map.items():
             list = []
             for item in value:
                 list.append(item[6 : len(item) - 1])
