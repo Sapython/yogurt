@@ -77,7 +77,7 @@ class EintData(object):
     def get_modeName(gpio_num, mode_idx):
         key = "gpio%s" % (gpio_num)
 
-        if key in list(EintData._mode_map.keys()):
+        if key in EintData._mode_map.keys():
             list = EintData._mode_map[key]
             if mode_idx < len(list) and mode_idx >= 0:
                 return list[mode_idx]
